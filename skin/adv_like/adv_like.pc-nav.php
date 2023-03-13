@@ -33,10 +33,10 @@
 				| <?php _navigator('upload') ?>
  			<?php } ?>
 		<?php } ?>
-		| <?php _navigator('diff') ?>
 		<?php if ($do_backup) { ?>
 			| <?php _navigator('backup') ?>
 		<?php } ?>
+		| <?php _navigator('diff') ?>
 	<?php } ?>
  ]
 

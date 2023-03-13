@@ -104,9 +104,11 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
    <?php require_once(PLUGIN_DIR . 'topicpath.inc.php'); echo plugin_topicpath_inline(); ?>
    </span>
   <?php } ?>
+  <div id="lastmodified">&nbsp;
   <?php if ($lastmodified != '') { ?>
-   <div id="lastmodified">Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?></div>
+   Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?>
   <?php } ?>
+  </div>
  </div>
 </div>
 

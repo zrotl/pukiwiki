@@ -17,8 +17,8 @@
 				<?php } ?>
 				<?php if (!$is_freeze && (bool)ini_get('file_uploads')) { ?><li><?php _navigator('upload') ?></li><?php } ?>
 			<?php } ?>
-			<li><?php _navigator('diff') ?></li>
 			<?php if ($do_backup) { ?><li><?php _navigator('backup') ?></li><?php } ?>
+			<li><?php _navigator('diff') ?></li>
 		<?php } ?>
 		<?php if ($enable_login || $enable_logout) { ?><li>|</li><?php } ?>
 		<?php if ($enable_login) { ?><li><?php _navigator('login') ?></li><?php } ?>
