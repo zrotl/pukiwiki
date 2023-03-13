@@ -143,6 +143,8 @@ function page_write($page, $postdata, $notimestamp = FALSE)
 	if ($autoalias && $page === $aliaspage) {
 		update_autoalias_cache_file();
 	}
+
+	log_write('update',$page);
 }
 
 // Modify original text with user-defined / system-defined rules

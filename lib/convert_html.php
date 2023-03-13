@@ -897,6 +897,7 @@ class Body extends Element
 
 	function parse(& $lines)
 	{
+		global $line_break;
 		$this->last = & $this;
 		$matches = array();
 
@@ -917,7 +918,12 @@ class Body extends Element
 
 			// Empty
 			if ($line == '') {
-				$this->last = & $this;
+				// Line_break (User Added)
+				if ($line_break == 2) {
+					$this->last = & $this->last->add(Factory_Inline($line));
+				} else {
+					$this->last = & $this;
+				}
 				continue;
 			}
 

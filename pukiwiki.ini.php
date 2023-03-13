@@ -77,6 +77,8 @@ define('CACHE_DIR',     DATA_HOME . 'cache/'    ); // Some sort of caches
 define('UPLOAD_DIR',    DATA_HOME . 'attach/'   ); // Attached files and logs
 define('COUNTER_DIR',   DATA_HOME . 'counter/'  ); // Counter plugin's counts
 define('PLUGIN_DIR',    DATA_HOME . 'plugin/'   ); // Plugin directory
+define('LOG_DIR',       DATA_HOME . 'log/'      ); // Logging file
+require_once('config-log.ini.php');
 
 /////////////////////////////////////////////////
 // Directory settings II (ended with '/')
@@ -189,10 +191,10 @@ $notimeupdate = 1;
 // Admin password for this Wikisite
 
 // Default: always fail
-$adminpass = '{x-php-md5}!';
+//$adminpass = '{x-php-md5}!';
 
 // Sample:
-//$adminpass = 'pass'; // Cleartext
+$adminpass = 'pass'; // Cleartext
 //$adminpass = '{x-php-md5}1a1dc91c907325c69271ddf0c944bc72'; // PHP md5()  'pass'
 //$adminpass = '{x-php-sha256}d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1'; // PHP sha256  'pass'
 //$adminpass = '{CRYPT}$1$AR.Gk94x$uCe8fUUGMfxAPH83psCZG/';   // LDAP CRYPT 'pass'
@@ -234,7 +236,7 @@ $pagereading_config_dict = ':config/PageReading/dict';
 /////////////////////////////////////////////////
 // Authentication type
 // AUTH_TYPE_NONE, AUTH_TYPE_FORM, AUTH_TYPE_BASIC, AUTH_TYPE_EXTERNAL, ...
-// $auth_type = AUTH_TYPE_FORM;
+$auth_type = AUTH_TYPE_FORM;
 // $auth_external_login_url_base = './exlogin.php';
 
 /////////////////////////////////////////////////

@@ -29,6 +29,10 @@ function pkwk_login($pass = '')
 
 	if (! PKWK_READONLY && isset($adminpass) &&
 		pkwk_hash_compute($pass, $adminpass) === $adminpass) {
+		session_start();
+		session_regenerate_id(true); // require: PHP5.1+
+		$_SESSION['authenticated_user'] = 'admin';
+		$_SESSION['authenticated_user_fullname'] = 'Administrator';
 		return TRUE;
 	} else {
 		sleep(2);       // Blocking brute force attack
@@ -213,6 +217,19 @@ function pkwk_ldap_escape_dn($value) {
 
 
 // Basic-auth related ----
+function check_admin($auth_enabled = TRUE)
+{
+			// With exit
+			$body = $title = str_replace('$1',
+				htmlsc(strip_bracket($page)), $_title_cannotedit);
+			if (is_freeze($page))
+				$body .= '(<a href="' . get_base_uri() . '?cmd=unfreeze&amp;page=' .
+					rawurlencode($page) . '">' . $_msg_unfreeze . '</a>)';
+			$page = str_replace('$1', make_search($page), $_title_cannotedit);
+			catbody($title, $page, $body);
+			return FALSE;
+}
+
 
 // Check edit-permission
 function check_editable($page, $auth_enabled = TRUE, $exit_on_fail = TRUE)
@@ -558,6 +575,8 @@ function get_auth_user()
  */
 function form_auth($username, $password)
 {
+	if ($username === 'admin') return pkwk_login($password);
+
 	global $ldap_user_account, $auth_users;
 	$user = $username;
 	if ($ldap_user_account) {

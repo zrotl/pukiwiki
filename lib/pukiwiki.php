@@ -32,6 +32,8 @@ if (! extension_loaded('mbstring')) {
 	require(LIB_DIR . 'mbstring.php');
 }
 
+require(LIB_DIR . 'log.php');
+
 // Defaults
 $notify = 0;
 

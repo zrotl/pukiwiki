@@ -12,10 +12,10 @@ function plugin_loginform_inline()
 	if (! is_pagename($page)) {
 		$page = '';
 	}
-	if (! ($read_auth || $edit_auth)) {
-		// non auth site
-		return 'Note: loginform is for auth enabled site';
-	}
+	// if (! ($read_auth || $edit_auth)) {
+	// 	// non auth site
+	// 	return 'Note: loginform is for auth enabled site';
+	// }
 	$logout_param = '?plugin=loginform&pcmd=logout&page=' . pagename_urlencode($page);
 	return '<a href="' . htmlsc(get_base_uri() . $logout_param) . '">Log out</a>';
 }
@@ -34,11 +34,11 @@ function plugin_loginform_action()
 	if (! is_pagename($page)) {
 		$page = '';
 	}
-	if (! ($read_auth || $edit_auth)) {
-		// non auth site
-		die_message('Invalid action');
-		exit;
-	}
+	// if (! ($read_auth || $edit_auth)) {
+	// 	// non auth site
+	// 	die_message('Invalid action');
+	// 	exit;
+	// }
 	$url_after_login = isset($_GET['url_after_login']) ? $_GET['url_after_login'] : '';
 	$page_after_login = $page;
 	if (!$url_after_login) {
