@@ -1,0 +1,9 @@
+1.skinフォルダにadv_likeフォルダを入れる
+
+2.pukiwiki.ini.php内を書き換え
+define('SKIN_DIR', 'skin/');
+→　define('SKIN_DIR', 'skin/adv_like/');
+
+3.default.ini.php内を書き換え
+define('SKIN_FILE', DATA_HOME . SKIN_DIR . 'pukiwiki.skin.php');
+→　define('SKIN_FILE', DATA_HOME . SKIN_DIR . 'adv_like.skin.php');
