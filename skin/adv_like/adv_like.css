@@ -502,13 +502,21 @@ span.new5 {
 }
   
 /* comment.inc.php */
-._p_comment_form input[name="msg"] {
-	max-width:90%;
+._p_comment_form textarea {
+	min-height: calc( 1.4em * 4 );
+	line-height: 1.3em;
+	width:100%;
+	resize: vertical;
+	scrollbar-gutter: stable;
 }
   
 /* pcomment.inc.php */
-._p_pcomment_form input[name="msg"] {
-	max-width:90%;
+._p_pcomment_form textarea {
+	min-height: calc( 1.4em * 4 );
+	line-height: 1.3em;
+	width: 100%;
+	resize: vertical;
+	scrollbar-gutter: stable;
 }
   
 /* article.inc.php */

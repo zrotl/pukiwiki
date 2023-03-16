@@ -126,8 +126,8 @@ function plugin_pcomment_convert()
 
 		$radio   = $params['reply'] ?
 			'<input type="radio" name="reply" value="0" tabindex="0" checked="checked" />' : '';
-		$comment = '<input type="text" name="msg" size="' .
-			PLUGIN_PCOMMENT_SIZE_MSG . '" required />';
+		// $comment = '<input type="text" name="msg" size="' .	PLUGIN_PCOMMENT_SIZE_MSG . '" required />';
+		$comment = '<textarea name="msg" required></textarea>';
 
 		$s_page   = htmlsc($page);
 		$s_refer  = htmlsc($vars_page);
@@ -145,8 +145,8 @@ function plugin_pcomment_convert()
   <input type="hidden" name="nodate" value="$s_nodate" />
   <input type="hidden" name="dir"    value="$dir" />
   <input type="hidden" name="count"  value="$count" />
-  $radio $title $name $comment
-  <input type="submit" value="{$_pcmt_messages['btn_comment']}" />
+  $radio $title $name <input type="submit" value="{$_pcmt_messages['btn_comment']}" /><br>
+  $comment
   </div>
 EOD;
 		$form_end = '</form>' . "\n";
