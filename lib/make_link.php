@@ -898,8 +898,8 @@ function make_pagelink($page, $alias = '', $anchor = '', $refer = '', $isautolin
 			$retval = '<a href="' . $href . '">' . $_symbol_noexists . '</a>';
 			return $retval;
 		} else {
-			$retval = '<a href="' . $href . '">' . $s_alias . '</a>';
-			return '<span class="noexists">' . $retval . $symbol_html . '</span>';
+			$retval = '<a href="' . $href . '">' . $s_alias . $symbol_html . '</a>';
+			return '<span class="noexists">' . $retval . '</span>';
 		}
 	}
 }
