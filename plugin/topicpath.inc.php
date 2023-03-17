@@ -94,9 +94,11 @@ function plugin_topicpath_inline()
 	}
 	$s = join(PLUGIN_TOPICPATH_TOP_SEPARATOR, $topic_path);
 	if (PLUGIN_TOPICPATH_TOP_DISPLAY) {
-		$s = '<span class="topicpath-top">' .
-			make_pagelink($defaultpage, PLUGIN_TOPICPATH_TOP_LABEL) .
-			PLUGIN_TOPICPATH_TOP_SEPARATOR . '</span>' . $s;
+		// $s = '<span class="topicpath-top">' .
+		// 	make_pagelink($defaultpage, PLUGIN_TOPICPATH_TOP_LABEL) .
+		// 	PLUGIN_TOPICPATH_TOP_SEPARATOR . '</span>' . $s;
+		$s = make_pagelink($defaultpage, '<span class="fa fa-home"></span>') .
+			PLUGIN_TOPICPATH_TOP_SEPARATOR . $s;
 	}
 	return $s;
 }
