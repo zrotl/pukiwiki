@@ -81,20 +81,33 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 
  <link rel="SHORTCUT ICON" href="<?php echo $image['favicon'] ?>" />
  <link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.css" />
- <link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_color.css" />
+ <link id="colorstyle" rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
  <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery ?>
  <script type="text/javascript" src="skin/main.js" defer></script>
  <script type="text/javascript" src="skin/search2.js" defer></script>
-
+ <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <?php echo $head_tag ?>
 </head>
+
 <body>
 <?php echo $html_scripting_data ?>
+
+<input type="checkbox" id="color_mode_switch">
+<input type="checkbox" class="openMenubar" id="openMenubar">
+<input type="checkbox" class="openNavibar" id="openNavibar">
+
 <div id="header">
  <div id="header-logo">
   <a href="<?php echo $link['top'] ?>"><img id="logo" src="<?php echo IMAGE_DIR . $image['logo'] ?>" alt="<?php echo $page_title ?>" title="<?php echo $page_title ?>" /></a>
  </div>
  <div id="header-title">
+ <label for="color_mode_switch" class="color_switch">
+  <span class="color_switch_title">Color:&nbsp;</span>
+  <div class="switch">
+	<div class="circle"></div>
+  	<div class="slider"></div>
+  </div>
+ </label>
   <h1 class="title"><a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a></h1>
 
   <?php if(SKIN_DEFAULT_DISABLE_TOPICPATH) { ?>
@@ -112,15 +125,14 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
  </div>
 </div>
 
-<input type="checkbox" class="openMenubar" id="openMenubar">
-<input type="checkbox" class="openNavibar" id="openNavibar">
 
 <div id="sp-header">
   <label for="openMenubar" class="menubarIconToggle">
     <div class="openMenubarButton">Menu</div>
   </label>
   <div class="wikiPageTitle">
-	<a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a>&nbsp;-&nbsp;<a href="<?php echo $current_url ?>"><?php echo $title ?></a>
+	<a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a><br>
+	<span id="pagename"><a href="<?php echo $current_url ?>"><?php echo $title ?></a></span>
   </div>
   <label for="openNavibar" class="navibarIconToggle">
 	<div class="openNavibarButton">Navi</div>
@@ -138,7 +150,9 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 <?php echo $hr ?>
 
 <div id="contents">
- <div id="body"><?php echo $body ?></div>
+ <div id="body">
+  <div id="topicpath"><?php require_once(PLUGIN_DIR . 'topicpath.inc.php'); echo plugin_topicpath_inline(); ?></div><?php echo $body ?>
+ </div>
 <?php if ($menu) { ?>
  <div id="menubar"><?php echo $menu ?></div>
 <?php } ?>
@@ -255,4 +269,8 @@ function _toolbar($key, $x = 20, $y = 20){
  </p>
 </div>
 </body>
+<script type="text/javascript">
+	const dir = "<?php echo SKIN_DIR ?>";
+</script>
+<script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.js"></script>
 </html>

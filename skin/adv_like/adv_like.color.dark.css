@@ -1,0 +1,425 @@
+@charset "UTF-8";
+/**
+ * PukiWiki Plus! skin for PukiWiki Advance
+ * Original version written by miko and upk.
+ * Adv version by Logue.
+ *
+ * $Id: blue.css,v 1.0.6 2014/01/14 16:11:00 Logue Exp $
+ */
+
+/* :root {
+	--borderFormEls: hsl(0, 0%, 50%);
+	--bgFormEls: hsl(0, 0%, 30%);
+} */
+
+body {
+  background-color: rgb(35, 35, 35);
+  color: white;
+}
+
+::selection, ::-moz-selection {
+	background:RoyalBlue;
+	color:white;
+}
+
+a:not(.btn):not([role="presentation"]){
+	color:#286ba5;
+	-webkit-tap-highlight-color: #79aaff;
+}
+
+a:not(.btn):not([role="presentation"]):active{
+	color:#5c84c9;
+}
+
+a:not(.btn):not([role="presentation"]):visited{
+	color:#cf502d;
+}
+
+a:not(.btn):not([role="presentation"]):hover{
+	color:#a1bdec;
+	background-color:#0d4a88;
+}
+
+h1, h2, h3, h4, h5, h6{
+	background-image: -ms-linear-gradient(top, rgb(100, 100, 100), rgb(35,35,35));
+	background-image: -moz-linear-gradient(top, rgb(100, 100, 100), rgb(35,35,35));
+	background-image: -webkit-linear-gradient(top, rgb(100, 100, 100), rgb(35,35,35));
+	box-shadow: 0 1px 6px rgb(120, 120, 120);
+	text-shadow: 0 0 2px rgb(80, 80, 80), 0px 2px 0 black;
+}
+
+#hgroup h1{
+	color:#0000cc;
+}
+
+h1{
+	border-color:white white black MidnightBlue;
+}
+h2{
+	border-color:white white dimgray Blue;
+}
+h3{
+	border-color:white white dimgray RoyalBlue;
+}
+h4{
+	border-color:silver silver grey CornflowerBlue;
+}
+h5{
+	border-color:#f8f8ff #f8f8ff #999999 #66ccff;
+}
+h6{
+	border-color:#f8f8ff #f8f8ff #999999 #88c8f0;
+}
+
+dt{
+	color: #8080ff;
+}
+
+pre{
+	border-color: silver grey grey silver;
+	background-color:rgb(100,100,100);
+	background-image: -ms-linear-gradient(top, #f0f8ff, #e5f3ff);
+	background-image: -moz-linear-gradient(top, #f0f8ff, #e5f3ff);
+	background-image: -webkit-linear-gradient(top, #35434e, #30384e);
+	box-shadow: 2px 2px 4px rgb(100, 100, 100);
+	text-shadow: 1px 1px 3px rgba(0,0,0,.25);
+}
+
+q{
+	border-color:#999;
+}
+
+textarea, input, select {
+	color:white;
+	border-color: hsl(0, 0%, 50%);
+	background: hsl(0, 0%, 30%);
+}
+
+/* blockquote{
+	border-color: #99CCFF;
+	box-shadow: #cce5ff;
+} */
+
+thead td.style_td,
+tfoot td.style_td {
+  	color:inherit;
+  	background-color:#2a3846;
+}
+thead th.style_th,
+tfoot th.style_th {
+  	color:inherit;
+  	background-color:#1e466d;
+}
+.style_table {
+	color:inherit;
+  	background-color:#01132b;
+}
+.style_th {
+	color:inherit;
+  	background-color:#353e44;
+}
+.style_td {
+	color:inherit;
+  	background-color:#122238;
+}
+.style_td_blank {
+	color:inherit;
+	background-color:#0f1824;
+}
+
+span.noexists {
+	color:inherit;
+	background-color:#ffe000;
+}
+
+.super_index{
+	color:#DD3333;
+	background-color:inherit;
+}
+
+.note_super{
+	color:#DD3333;
+	background-color:inherit;
+}
+
+/* html.php/catbody() search word */
+strong.word0 {
+	background-color:#FFFF66;
+	color:black;
+}
+strong.word1 {
+	background-color:#A0FFFF;
+	color:black;
+}
+strong.word2 {
+	background-color:#99FF99;
+	color:black;
+}
+strong.word3 {
+	background-color:#FF9999;
+	color:black;
+}
+strong.word4 {
+	background-color:#FF66FF;
+	color:black;
+}
+strong.word5 {
+	background-color:#880000;
+	color:white;
+}
+strong.word6 {
+	background-color:#00AA00;
+	color:white;
+}
+strong.word7 {
+	background-color:#886800;
+	color:white;
+}
+strong.word8 {
+	background-color:#004699;
+	color:white;
+}
+strong.word9 {
+	background-color:#990099;
+	color:white;
+}
+
+hr{
+	border-color: slategray;
+}
+hr.full_hr, hr.note_hr {
+	border-color:#333333;
+}
+
+/* ::-webkit-scrollbar {
+	background: gainsboro;
+} */
+
+::-webkit-scrollbar-track {
+	background: rgb(120, 120, 120);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+}
+
+::-webkit-scrollbar-thumb {
+	background: #486479;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Layout */
+#main_wrapper, #menubar, #rightbar{
+    background-color: rgb(30, 38, 46);
+}
+
+#header-title h1, #header-title h2{
+	text-shadow: 1px 1px 3px rgba(0,0,0,.25);
+}
+
+#topicpath{
+	background-color: rgb(30, 38, 46);
+	border-radius: 4px;
+}
+
+/* User Add */
+#sp-header {
+	background-color:rgb(30, 38, 46);
+}
+
+div#sp-navigator {
+	background-color:rgb(30, 38, 46);
+}
+
+@media (max-width:767px) {
+	#navigator{
+		background-color:rgb(30, 38, 46);
+	}
+}
+
+.navibarIconToggle, .menubarIconToggle {
+	background: #1f3c58;
+}
+
+input[type="checkbox"]#openMenubar:checked ~ div#sp-header > .menubarIconToggle {
+	background: #396999;
+}
+
+input[type="checkbox"]#openNavibar:checked ~ div#sp-header > .navibarIconToggle{
+	background: #396999;
+}
+
+/** MenuBar/Rightbar *******************************************************************************/
+
+#menubar h1, #menubar h2, #menubar h3, #menubar h4, #menubar h5, #menubar h6,
+#rightbar h1, #rightbar h2, #rightbar h3, #rightbar h4, #rightbar h5, #rightbar h6{
+    border-color: #304050;
+	background-color: #2a3038;
+	text-shadow: 0 0 2px #304048, 0px 2px 0 black;
+	background-image: -ms-linear-gradient(top, #1b2835, #171e24);
+	background-image: -moz-linear-gradient(top, #1b2835, #171e24);
+	background-image: -webkit-linear-gradient(top, #1b2835, #171e24);
+}
+
+/** Plugin ****************************************************************************************/
+
+/* backup.inc.php */
+.add_word, .add_block{
+	background-color:#FFFF66;
+}
+
+.remove_word, .remove_block{
+	background-color:#A0FFFF;
+}
+
+/* calendar.inc.php */
+.style_calendar {
+	color:inherit;
+	background-color:#353e44;
+}
+.style_td_caltop {
+	color:inherit;
+	background-color:#01132b;
+}
+.style_td_today {
+	color:inherit;
+	background-color:#979734;
+}
+.style_td_sat {
+	color:inherit;
+	background-color:#354064;
+}
+.style_td_sun {
+	color:inherit;
+	background-color:#7c2525;
+}
+.style_td_blank {
+	color:inherit;
+	background-color:#0f1824;
+}
+.style_td_day {
+	color:inherit;
+	background-color:#122238;
+}
+.style_td_week {
+	color:inherit;
+	background-color:#022347;
+}
+.style_calendar tbody td:hover{
+	color:inherit;
+	background-color: #1f4b5f !important;
+}
+
+/* calendar_viewer.inc.php */
+div.calendar_viewer {
+	color:inherit;
+	background-color:inherit;
+}
+span.calendar_viewer_left {
+	color:inherit;
+	background-color:inherit;
+}
+span.calendar_viewer_right {
+	color:inherit;
+	background-color:inherit;
+}
+
+/* diff.inc.php */
+span.diff_added {
+	color:blue;
+	background-color:inherit;
+}
+span.diff_removed {
+	color:red;
+	background-color:inherit;
+}
+
+/* hr.inc.php */
+hr.short_line {
+	border-color:#333333;
+}
+
+/* new.inc.php */
+span.new1 {
+	color:red;
+	background-color:transparent;
+}
+span.new5 {
+	color:green;
+	background-color:transparent;
+}
+
+/* tooltip.inc.php */
+.tooltip, .linktip{
+	color: #006565;
+}
+
+.tooltip:hover, .linktip:hover{
+	background-color: #e1ffe4;
+}
+
+/* vote.inc.php */
+td.vote_label {
+	color:inherit;
+	background-color:#FFCCCC;
+}
+td.vote_td1 {
+	color:inherit;
+	background-color:#DDE5FF;
+}
+td.vote_td2 {
+	color:inherit;
+	background-color:#EEF5FF;
+}
+
+/* bugtrack.inc.php */
+tr.bugtrack_list_header th {
+	background-color:#ffffcc;
+}
+tr.bugtrack_state_proposal td {
+	background-color:#ccccff;
+}
+tr.bugtrack_state_accept td {
+	background-color:#ffcc99;
+}
+tr.bugrack_state_resolved td {
+	background-color:#ccffcc;
+}
+tr.bugtrack_state_pending td {
+	background-color:#ffccff;
+}
+tr.bugtrack_state_cancel td {
+	background-color:#cccccc;
+}
+tr.bugtrack_state_undef td {
+	background-color:#ff3333;
+}
+
+/* search2.inc.php  */
+.search-result-page-summary {
+	color:gray;
+}
+
+/* suckerfish.inc.php */
+/* .sf-menu {
+	background-color: CornflowerBlue;
+	border-color: RoyalBlue;
+}
+
+.sf-menu ul{
+	background-color: CornflowerBlue;
+	border-color: RoyalBlue;
+}
+
+.sf-menu li {
+	border-color: CornflowerBlue;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover{
+	color: midnightblue !important;
+	background-color: lightsteelblue;
+}
+
+.sf-menu li ul li:hover, .sf-menu li ul li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	color: midnightblue !important;
+	background-color: lightsteelblue;
+} */
