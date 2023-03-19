@@ -27,6 +27,8 @@ function pkwk_login($pass = '')
 {
 	global $adminpass;
 
+	if ($_SESSION['authenticated_user'] === 'admin') return true;
+
 	if (! PKWK_READONLY && isset($adminpass) &&
 		pkwk_hash_compute($pass, $adminpass) === $adminpass) {
 		session_start();
@@ -577,7 +579,7 @@ function form_auth($username, $password)
 {
 	if ($username === 'admin') return pkwk_login($password);
 
-	global $ldap_user_account, $auth_users;
+	global $ldap_user_account, $auth_users, $vars;
 	$user = $username;
 	if ($ldap_user_account) {
 		// LDAP account
@@ -592,6 +594,7 @@ function form_auth($username, $password)
 				session_regenerate_id(true); // require: PHP5.1+
 				$_SESSION['authenticated_user'] = $user;
 				$_SESSION['authenticated_user_fullname'] = $user;
+				$vars['pass'] = $password;
 				return true;
 			}
 		}

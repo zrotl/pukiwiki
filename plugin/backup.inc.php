@@ -132,16 +132,14 @@ function plugin_backup_delete($page)
 		return array('msg'=>$_title_pagebackuplist, 'body'=>plugin_backup_get_list($page)); // Say "is not found"
 
 	$body = '';
-	if (isset($vars['pass'])) {
-		if (pkwk_login($vars['pass'])) {
-			_backup_delete($page);
-			return array(
-				'msg'  => $_title_backup_delete,
-				'body' => str_replace('$1', make_pagelink($page), $_msg_backup_deleted)
-			);
-		} else {
-			$body = '<p><strong>' . $_msg_invalidpass . '</strong></p>' . "\n";
-		}
+	if ($_SESSION['authenticated_user'] === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
+		_backup_delete($page);
+		return array(
+			'msg'  => $_title_backup_delete,
+			'body' => str_replace('$1', make_pagelink($page), $_msg_backup_deleted)
+		);
+	} else {
+		$body = '<p><strong>' . $_msg_invalidpass . '</strong></p>' . "\n";
 	}
 
 	$script = get_base_uri();

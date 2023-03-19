@@ -20,6 +20,7 @@ function plugin_unfreeze_action()
 	if (! $function_freeze || ! is_page($page))
 		return array('msg' => '', 'body' => '');
 
+	error_log($vars['pass'], 0);
 	$pass = isset($vars['pass']) ? $vars['pass'] : NULL;
 	$msg = $body = '';
 	if (! is_freeze($page)) {
@@ -28,7 +29,7 @@ function plugin_unfreeze_action()
 		$body = str_replace('$1', htmlsc(strip_bracket($page)),
 			$_title_isunfreezed);
 
-	} else if ($pass !== NULL && pkwk_login($pass)) {
+	} else if ($_SESSION['authenticated_user'] === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
 		// Unfreeze
 		$postdata = get_source($page);
 		for ($i = count($postdata) - 1; $i >= 0; $i--) {

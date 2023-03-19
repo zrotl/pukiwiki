@@ -84,16 +84,14 @@ function plugin_diff_delete($page)
 	if (! file_exists($filename)) $body = make_pagelink($page) . '\'s diff seems not found';
 	if ($body) return array('msg'=>$_title_diff_delete, 'body'=>$body);
 
-	if (isset($vars['pass'])) {
-		if (pkwk_login($vars['pass'])) {
-			unlink($filename);
-			return array(
-				'msg'  => $_title_diff_delete,
-				'body' => str_replace('$1', make_pagelink($page), $_msg_diff_deleted)
-			);
-		} else {
-			$body .= '<p><strong>' . $_msg_invalidpass . '</strong></p>' . "\n";
-		}
+	if ($_SESSION['authenticated_user'] === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
+		unlink($filename);
+		return array(
+			'msg'  => $_title_diff_delete,
+			'body' => str_replace('$1', make_pagelink($page), $_msg_diff_deleted)
+		);
+	} else {
+		$body .= '<p><strong>' . $_msg_invalidpass . '</strong></p>' . "\n";
 	}
 
 	$s_page = htmlsc($page);

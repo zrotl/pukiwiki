@@ -21,6 +21,7 @@ function plugin_freeze_action()
 		return array('msg' => '', 'body' => '');
 
 	$pass = isset($vars['pass']) ? $vars['pass'] : NULL;
+	error_log($vars['pass'], 0 );
 	$msg = $body = '';
 	if (is_freeze($page)) {
 		// Freezed already
@@ -28,7 +29,7 @@ function plugin_freeze_action()
 		$body = str_replace('$1', htmlsc(strip_bracket($page)),
 			$_title_isfreezed);
 
-	} else if ($pass !== NULL && pkwk_login($pass)) {
+	} else if ($_SESSION['authenticated_user'] === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
 		// Freeze
 		$postdata = get_source($page);
 		array_unshift($postdata, "#freeze\n");

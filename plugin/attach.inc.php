@@ -13,11 +13,11 @@
 // NOTE (PHP > 4.2.3):
 //    This feature is disabled at newer version of PHP.
 //    Set this at php.ini if you want.
-// Max file size for upload on PHP (PHP default: 2MB)
-ini_set('upload_max_filesize', '2M');
+// Max file size for upload on PHP (PHP default: 20MB)
+ini_set('upload_max_filesize', '20M');
 
 // Max file size for upload on script of PukiWikiX_FILESIZE
-define('PLUGIN_ATTACH_MAX_FILESIZE', (1024 * 1024)); // default: 1MB
+define('PLUGIN_ATTACH_MAX_FILESIZE', (20 * 1024 * 1024)); // default: 20MB
 
 // 管理者だけが添付ファイルをアップロードできるようにする
 define('PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY', TRUE); // FALSE or TRUE
@@ -186,7 +186,7 @@ function attach_upload($file, $page, $pass = NULL)
 			'result'=>FALSE,'
 			msg'=>$_attach_messages['err_noparm']);
 	} else if (PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY && $pass !== TRUE &&
-		  ($pass === NULL || ! pkwk_login($pass))) {
+		  ($_SESSION['authenticated_user'] !== 'admin' || $pass === NULL || ! pkwk_login($pass))) {
 		return array(
 			'result'=>FALSE,
 			'msg'=>$_attach_messages['err_adminpass']);
@@ -616,7 +616,7 @@ EOD;
 
 		if ($this->status['freeze']) return attach_info('msg_isfreeze');
 
-		if (! pkwk_login($pass)) {
+		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) {
 			if (PLUGIN_ATTACH_DELETE_ADMIN_ONLY || $this->age) {
 				return attach_info('err_adminpass');
 			} else if (PLUGIN_ATTACH_PASSWORD_REQUIRE &&
@@ -667,7 +667,7 @@ EOD;
 
 		if ($this->status['freeze']) return attach_info('msg_isfreeze');
 
-		if (! pkwk_login($pass)) {
+		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) {
 			if (PLUGIN_ATTACH_DELETE_ADMIN_ONLY || $this->age) {
 				return attach_info('err_adminpass');
 			} else if (PLUGIN_ATTACH_PASSWORD_REQUIRE &&
@@ -717,7 +717,7 @@ EOD;
 	{
 		global $_attach_messages;
 
-		if (! pkwk_login($pass)) return attach_info('err_adminpass');
+		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) return attach_info('err_adminpass');
 
 		$this->getstatus();
 		$this->status['freeze'] = $freeze;
