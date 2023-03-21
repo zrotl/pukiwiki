@@ -795,6 +795,7 @@ function get_readings()
 	global $pagereading_kanji2kana_encoding, $pagereading_chasen_path;
 	global $pagereading_kakasi_path, $pagereading_config_page;
 	global $pagereading_config_dict;
+	global $pagereading_mecab_path;
 
 	$pages = get_existpages();
 
@@ -896,6 +897,43 @@ function get_readings()
 					$line = mb_convert_encoding($line, SOURCE_ENCODING,
 						$pagereading_kanji2kana_encoding);
 					$line = chop($line);
+					$readings[$page] = $line;
+				}
+				pclose($fp);
+
+				unlink($tmpfname) or
+					die_message('Temporary file can not be removed: ' . $tmpfname);
+				break;
+
+			case 'mecab':
+				if(! file_exists($pagereading_mecab_path))
+					die_message('KAKASI not found: ' . $pagereading_mecab_path);
+
+				$tmpfname = tempnam(realpath(CACHE_DIR), 'PageReading');
+				$fp       = fopen($tmpfname, 'w') or
+					die_message('Cannot write temporary file "' . $tmpfname . '".' . "\n");
+				foreach ($readings as $page => $reading) {
+					if($reading != '') continue;
+					fputs($fp, mb_convert_encoding($page . "\n",
+						$pagereading_kanji2kana_encoding, SOURCE_ENCODING));
+				}
+				fclose($fp);
+
+				$mecab = "$pagereading_mecab_path -Oyomi $tmpfname";
+				$fp     = popen($mecab, 'r');
+				if($fp === FALSE) {
+					unlink($tmpfname);
+					die_message('MECAB execution failed: ' . $mecab);
+				}
+
+				foreach ($readings as $page => $reading) {
+					if($reading != '') continue;
+
+					$line = fgets($fp);
+					$line = mb_convert_encoding($line, SOURCE_ENCODING,
+						$pagereading_kanji2kana_encoding);
+					$line = chop($line);
+					$line = mb_convert_kana($line, "C");
 					$readings[$page] = $line;
 				}
 				pclose($fp);
