@@ -161,7 +161,7 @@ function attach_filelist()
 // $pass = TRUE : アップロード許可
 function attach_upload($file, $page, $pass = NULL)
 {
-	global $_attach_messages, $notify, $notify_subject;
+	global $_attach_messages, $notify, $notify_subject, $auth_user;
 
 	if (PKWK_READONLY) die_message('PKWK_READONLY prohibits editing');
 
@@ -186,7 +186,7 @@ function attach_upload($file, $page, $pass = NULL)
 			'result'=>FALSE,'
 			msg'=>$_attach_messages['err_noparm']);
 	} else if (PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY && $pass !== TRUE &&
-		  ($_SESSION['authenticated_user'] !== 'admin' || $pass === NULL || ! pkwk_login($pass))) {
+		  ($auth_user !== 'admin' || $pass === NULL || ! pkwk_login($pass))) {
 		return array(
 			'result'=>FALSE,
 			'msg'=>$_attach_messages['err_adminpass']);
@@ -612,11 +612,11 @@ EOD;
 
 	function delete($pass)
 	{
-		global $_attach_messages, $notify, $notify_subject;
+		global $_attach_messages, $notify, $notify_subject, $auth_user;
 
 		if ($this->status['freeze']) return attach_info('msg_isfreeze');
 
-		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) {
+		if ($auth_user !== 'admin' && ! pkwk_login($pass)) {
 			if (PLUGIN_ATTACH_DELETE_ADMIN_ONLY || $this->age) {
 				return attach_info('err_adminpass');
 			} else if (PLUGIN_ATTACH_PASSWORD_REQUIRE &&
@@ -663,11 +663,11 @@ EOD;
 
 	function rename($pass, $newname)
 	{
-		global $_attach_messages, $notify, $notify_subject;
+		global $_attach_messages, $notify, $notify_subject, $auth_user;
 
 		if ($this->status['freeze']) return attach_info('msg_isfreeze');
 
-		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) {
+		if ($auth_user !== 'admin' && ! pkwk_login($pass)) {
 			if (PLUGIN_ATTACH_DELETE_ADMIN_ONLY || $this->age) {
 				return attach_info('err_adminpass');
 			} else if (PLUGIN_ATTACH_PASSWORD_REQUIRE &&
@@ -715,9 +715,9 @@ EOD;
 
 	function freeze($freeze, $pass)
 	{
-		global $_attach_messages;
+		global $_attach_messages, $auth_user;
 
-		if ($_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($pass)) return attach_info('err_adminpass');
+		if ($auth_user !== 'admin' && ! pkwk_login($pass)) return attach_info('err_adminpass');
 
 		$this->getstatus();
 		$this->status['freeze'] = $freeze;

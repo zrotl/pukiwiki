@@ -11,7 +11,7 @@ define('PLUGIN_UNFREEZE_EDIT', TRUE);
 
 function plugin_unfreeze_action()
 {
-	global $vars, $function_freeze;
+	global $vars, $auth_user, $function_freeze;
 	global $_title_isunfreezed, $_title_unfreezed, $_title_unfreeze;
 	global $_msg_invalidpass, $_msg_unfreezing, $_btn_unfreeze;
 
@@ -29,7 +29,7 @@ function plugin_unfreeze_action()
 		$body = str_replace('$1', htmlsc(strip_bracket($page)),
 			$_title_isunfreezed);
 
-	} else if ($_SESSION['authenticated_user'] === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
+	} else if ($auth_user === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
 		// Unfreeze
 		$postdata = get_source($page);
 		for ($i = count($postdata) - 1; $i >= 0; $i--) {

@@ -218,7 +218,7 @@ function plugin_edit_inline()
 // Write, add, or insert new comment
 function plugin_edit_write()
 {
-	global $vars;
+	global $vars, $auth_user;
 	global $_title_collided, $_msg_collided_auto, $_msg_collided, $_title_deleted;
 	global $notimeupdate, $_msg_invalidpass, $do_update_diff_table;
 
@@ -272,7 +272,7 @@ function plugin_edit_write()
 
 	// $notimeupdate: Checkbox 'Do not change timestamp'
 	$notimestamp = isset($vars['notimestamp']) && $vars['notimestamp'] != '';
-	if ($notimeupdate > 1 && $notimestamp && $_SESSION['authenticated_user'] !== 'admin' && ! pkwk_login($vars['pass'])) {
+	if ($notimeupdate > 1 && $notimestamp && $auth_user !== 'admin' && ! pkwk_login($vars['pass'])) {
 		// Enable only administrator & password error
 		$retvars['body']  = '<p><strong>' . $_msg_invalidpass . '</strong></p>' . "\n";
 		$retvars['body'] .= edit_form($page, $msg, $digest, FALSE);

@@ -26,8 +26,9 @@ define('AUTH_TYPE_SAML', 6);
 function pkwk_login($pass = '')
 {
 	global $adminpass;
+	global $auth_user;
 
-	if ($_SESSION['authenticated_user'] === 'admin') return true;
+	if ($auth_user === 'admin') return true;
 
 	if (! PKWK_READONLY && isset($adminpass) &&
 		pkwk_hash_compute($pass, $adminpass) === $adminpass) {
@@ -594,7 +595,6 @@ function form_auth($username, $password)
 				session_regenerate_id(true); // require: PHP5.1+
 				$_SESSION['authenticated_user'] = $user;
 				$_SESSION['authenticated_user_fullname'] = $user;
-				$vars['pass'] = $password;
 				return true;
 			}
 		}

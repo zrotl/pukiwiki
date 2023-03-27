@@ -14,6 +14,7 @@ function plugin_freeze_action()
 	global $vars, $function_freeze;
 	global $_title_isfreezed, $_title_freezed, $_title_freeze;
 	global $_msg_invalidpass, $_msg_freezing, $_btn_freeze;
+	global $auth_user;
 
 	$script = get_base_uri();
 	$page = isset($vars['page']) ? $vars['page'] : '';
@@ -29,7 +30,7 @@ function plugin_freeze_action()
 		$body = str_replace('$1', htmlsc(strip_bracket($page)),
 			$_title_isfreezed);
 
-	} else if ($_SESSION['authenticated_user'] === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
+	} else if ($auth_user === 'admin' || ($pass !== NULL && pkwk_login($pass))) {
 		// Freeze
 		$postdata = get_source($page);
 		array_unshift($postdata, "#freeze\n");

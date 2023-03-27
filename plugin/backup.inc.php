@@ -126,13 +126,13 @@ function plugin_backup_action()
 function plugin_backup_delete($page)
 {
 	global $vars, $_title_backup_delete, $_title_pagebackuplist, $_msg_backup_deleted;
-	global $_msg_backup_adminpass, $_btn_delete, $_msg_invalidpass;
+	global $_msg_backup_adminpass, $_btn_delete, $_msg_invalidpass, $auth_user;
 
 	if (! _backup_file_exists($page))
 		return array('msg'=>$_title_pagebackuplist, 'body'=>plugin_backup_get_list($page)); // Say "is not found"
 
 	$body = '';
-	if ($_SESSION['authenticated_user'] === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
+	if ($auth_user === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
 		_backup_delete($page);
 		return array(
 			'msg'  => $_title_backup_delete,

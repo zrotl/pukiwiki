@@ -73,7 +73,7 @@ EOD;
 
 function plugin_diff_delete($page)
 {
-	global $vars;
+	global $vars, $auth_user;
 	global $_title_diff_delete, $_msg_diff_deleted;
 	global $_msg_diff_adminpass, $_btn_delete, $_msg_invalidpass;
 
@@ -84,7 +84,7 @@ function plugin_diff_delete($page)
 	if (! file_exists($filename)) $body = make_pagelink($page) . '\'s diff seems not found';
 	if ($body) return array('msg'=>$_title_diff_delete, 'body'=>$body);
 
-	if ($_SESSION['authenticated_user'] === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
+	if ($auth_user === 'admin' || (isset($vars['pass']) && pkwk_login($vars['pass']))) {
 		unlink($filename);
 		return array(
 			'msg'  => $_title_diff_delete,
