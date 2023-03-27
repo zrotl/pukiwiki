@@ -11,7 +11,7 @@
 // PukiWiki version / Copyright / Licence
 
 define('S_VERSION', '1.5.4');
-define('S_MOD_VERSION', '230319');
+define('S_MOD_VERSION', '230327');
 define('S_COPYRIGHT',
 	'<strong>PukiWiki '
 	. S_VERSION
