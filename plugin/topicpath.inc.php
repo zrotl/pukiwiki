@@ -69,7 +69,10 @@ function plugin_topicpath_inline()
 {
 	global $vars, $defaultpage;
 	$page = isset($vars['page']) ? $vars['page'] : '';
-	if ($page == '' || $page == $defaultpage) return '';
+	// if ($page == '' || $page == $defaultpage) return '';
+	if ($page == '') return '';
+	if ($page == $defaultpage) return '<span class="fa fa-home"></span>';
+	
 	$parents = plugin_topicpath_parent_all_links($page);
 	$topic_path = array();
 	foreach ($parents as $p) {
