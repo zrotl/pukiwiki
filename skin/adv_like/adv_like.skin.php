@@ -268,6 +268,7 @@ function _toolbar($key, $x = 20, $y = 20){
  <!-- Powered by PHP <?php echo PHP_VERSION ?>. -->
  </p>
 </div>
+<?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin ?>
 </body>
 <script type="text/javascript">
 	const dir = "<?php echo SKIN_DIR ?>";

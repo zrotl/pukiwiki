@@ -105,6 +105,9 @@ function do_plugin_action($name)
 		die_message('Plugin init failed: ' . htmlsc($name));
 	}
 
+	// reCAPTCHA v3 plugin
+	if (exist_plugin_action('recaptcha3') && ($__v = call_user_func_array('plugin_recaptcha3_action', array($name))['body'])) die_message($__v);
+	
 	$retvar = call_user_func('plugin_' . $name . '_action');
 
 	// Insert a hidden field, supports idenrtifying text enconding
