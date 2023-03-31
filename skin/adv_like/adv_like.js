@@ -1,10 +1,13 @@
 // html elements
-const logo = document.getElementById("header-logo");
-const spheader = document.getElementById("sp-header");
-const spnavi = document.getElementById("sp-navigator");
-const contents = document.getElementById("contents");
-const menubar = document.getElementById("menubar");
-const checkbox = document.getElementById("color_mode_switch");
+const $logo = $('#header-logo');
+const $spheader = $('#sp-header');
+const $spnavi = $("#sp-navigator");
+const $contents = $("#contents");
+const $menubar = $("#menubar");
+const $checkbox = $("#color_mode_switch");
+const $stylesheet = $('#colorstyle');
+
+// Cookies
 const getCookie = Cookies.get('pkwk-darkmode');
 
 // initialize Positions
@@ -15,13 +18,10 @@ changeStyleSheet((typeof getCookie === 'undefined') ?
     : JSON.parse(Cookies.get('pkwk-darkmode'))
 );
 
-
 // display mode change(sp -> pc)
-const mql = window.matchMedia('(max-width: 767px)');
-mql.onchange = (e) => {
+window.matchMedia('(max-width: 767px)').onchange = (e) => {
     if (!e.matches) calcLogoSize();
 }
-
 
 // Window Size Event Listener(sp)
 window.addEventListener('resize',function(){
@@ -29,32 +29,35 @@ window.addEventListener('resize',function(){
 });
 
 // CSS selector switch
-checkbox.addEventListener('change', function () {
-    changeStyleSheet(checkbox.checked);
-    Cookies.set('pkwk-darkmode', (checkbox.checked ? 1 : 0), {expires: 180});
+$checkbox.change(function () {
+    changeStyleSheet($checkbox.prop("checked"));
+    Cookies.set('pkwk-darkmode', ($checkbox.prop("checked") ? 1 : 0), {expires: 180});
 });
 
 
-// define functions
-function changeStyleSheet(mode) {
-    const element = document.getElementById("colorstyle");
 
+// define functions
+
+function changeStyleSheet(mode) {
     if(mode) {
-      element.href = dir + "adv_like.color.dark.css";
-      checkbox.checked = true;
+        $stylesheet.attr('href', dir+'adv_like.color.dark.css');
+        $checkbox.prop("checked", true);
     } else {
-      element.href = dir + "adv_like.color.light.css";
-      checkbox.checked = false;
+        $stylesheet.attr('href', dir+'adv_like.color.light.css');
+        $checkbox.prop("checked", false);
     }
 }
 
 function calcContentsHeight() {
-    spnavi.style.marginTop = "-"+spnavi.getBoundingClientRect().height+"px";
-    spnavi.style.top = (spheader.getBoundingClientRect().height-spnavi.getBoundingClientRect().height)+"px";
-    contents.style.top = spheader.getBoundingClientRect().height+"px";
-    menubar.style.top = spheader.getBoundingClientRect().height+"px";
+    var navi_height = $spnavi.outerHeight(true);
+    var header_height =$spheader.outerHeight(true);
+
+    $spnavi.css('margin-top', -navi_height-1+"px");
+    $spnavi.css('top', (header_height-navi_height-1)+"px");
+    $contents.css('top', header_height+"px");
+    $menubar.css('top', header_height+"px");
 }
 
 function calcLogoSize() {
-    logo.style.width = logo.getBoundingClientRect().height+"px";
+    $logo.width($logo.outerHeight(true));
 }
