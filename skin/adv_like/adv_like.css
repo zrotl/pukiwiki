@@ -385,7 +385,7 @@ div#body {
 
 #lastmodified {
 	clear:both;
-	font-size:85%;
+	font-size:80%;
 	float:right;
 }
 
@@ -769,6 +769,7 @@ div#sp-navigator {
 
 	div#sp-lastmodified {
 		display: block;
+		font-size: 80%;
 	}
 
 	.navibarIconToggle, .menubarIconToggle {
@@ -824,6 +825,7 @@ div#sp-navigator {
 	  	/* position: relative; */
 	}
 	div#body {
+		overscroll-behavior: none;
 		margin-left: 0;
 	}
 	div#note, hr.full_hr, div#toolbar, div#sp-lastmodified, div#footer {
@@ -832,7 +834,8 @@ div#sp-navigator {
 	}
 
 	div#menubar {
-		padding: 8px;
+		overscroll-behavior: none;
+		padding:8px;
 		min-height: max-content;
 		position: fixed;
 		left: 0;
