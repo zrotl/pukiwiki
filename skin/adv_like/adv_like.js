@@ -4,7 +4,7 @@ const $spheader = $('#sp-header');
 const $spnavi = $("#sp-navigator");
 const $contents = $("#contents");
 const $menubar = $("#menubar");
-const $checkbox = $("#color_mode_switch");
+const $colorcheckbox = $("#color_mode_switch");
 const $stylesheet = $('#colorstyle');
 
 // Cookies
@@ -29,22 +29,20 @@ window.addEventListener('resize',function(){
 });
 
 // CSS selector switch
-$checkbox.change(function () {
-    changeStyleSheet($checkbox.prop("checked"));
-    Cookies.set('pkwk-darkmode', ($checkbox.prop("checked") ? 1 : 0), {expires: 180});
+$colorcheckbox.change(function () {
+    changeStyleSheet($colorcheckbox.prop("checked"));
+    Cookies.set('pkwk-darkmode', ($colorcheckbox.prop("checked") ? 1 : 0), {expires: 180});
 });
 
 
-
 // define functions
-
 function changeStyleSheet(mode) {
     if(mode) {
         $stylesheet.attr('href', dir+'adv_like.color.dark.css');
-        $checkbox.prop("checked", true);
+        $colorcheckbox.prop("checked", true);
     } else {
         $stylesheet.attr('href', dir+'adv_like.color.light.css');
-        $checkbox.prop("checked", false);
+        $colorcheckbox.prop("checked", false);
     }
 }
 
