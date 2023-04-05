@@ -832,14 +832,13 @@ div#sp-navigator {
 	}
 
 	div#menubar {
-		padding:8px;
+		padding: 8px;
 		min-height: max-content;
 		position: fixed;
 		left: 0;
 		top: 0;
 		bottom: 0;
 		width: auto;
-		height: 100%;
 		font-size: 100%;
 		overflow-y: auto;
 		/* -webkit-overflow-scrolling: touch; */

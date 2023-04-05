@@ -53,6 +53,8 @@ function calcContentsHeight() {
     spnavi.style.top = (spheader.getBoundingClientRect().height-spnavi.getBoundingClientRect().height)+"px";
     contents.style.top = spheader.getBoundingClientRect().height+"px";
     menubar.style.top = spheader.getBoundingClientRect().height+"px";
+    menubar.style.height = window.innerHeight - spheader.getBoundingClientRect().height - parseInt(getComputedStyle(menubar).padding)*2 + "px";
+    console.log(menubar.style.height);
 }
 
 function calcLogoSize() {
