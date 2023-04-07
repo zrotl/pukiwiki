@@ -907,7 +907,7 @@ function get_readings()
 
 			case 'mecab':
 				if(! file_exists($pagereading_mecab_path))
-					die_message('KAKASI not found: ' . $pagereading_mecab_path);
+					die_message('MECAB not found: ' . $pagereading_mecab_path);
 
 				$tmpfname = tempnam(realpath(CACHE_DIR), 'PageReading');
 				$fp       = fopen($tmpfname, 'w') or
@@ -937,6 +937,39 @@ function get_readings()
 					$readings[$page] = $line;
 				}
 				pclose($fp);
+
+				unlink($tmpfname) or
+					die_message('Temporary file can not be removed: ' . $tmpfname);
+				break;
+
+			case 'other':
+				$othercmd = "$pagereading_other_path ";
+
+				if(exec($othercmd.'テスト') === false)
+					die_message('Reading Command not found: ' . $pagereading_other_path);
+
+				$tmpfname = tempnam(realpath(CACHE_DIR), 'PageReading');
+				$fp       = fopen($tmpfname, 'w') or
+					die_message('Cannot write temporary file "' . $tmpfname . '".' . "\n");
+				foreach ($readings as $page => $reading) {
+					if($reading != '') continue;
+					fputs($fp, mb_convert_encoding($page . "\n",
+						$pagereading_kanji2kana_encoding, SOURCE_ENCODING));
+				}
+				fclose($fp);
+
+				foreach ($readings as $page => $reading) {
+					if($reading != '') continue;
+
+					$output = array();
+					exec($othercmd.$page, $output);
+					$line = $output[0];
+					$line = mb_convert_encoding($line, SOURCE_ENCODING,
+						$pagereading_kanji2kana_encoding);
+					$line = chop($line);
+					$line = mb_convert_kana($line, "C");
+					$readings[$page] = $line;
+				}
 
 				unlink($tmpfname) or
 					die_message('Temporary file can not be removed: ' . $tmpfname);

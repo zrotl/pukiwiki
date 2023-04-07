@@ -84,7 +84,8 @@ require_once('config-log.ini.php');
 // Directory settings II (ended with '/')
 
 // Skins / Stylesheets
-define('SKIN_DIR', 'skin/');
+// define('SKIN_DIR', 'skin/');
+define('SKIN_DIR', 'skin/adv_like/');
 // Skin files (SKIN_DIR/*.skin.php) are needed at
 // ./DATAHOME/SKIN_DIR from index.php, but
 // CSSs(*.css) and JavaScripts(*.js) are needed at
@@ -211,11 +212,11 @@ $adminpass = 'pass'; // Cleartext
 // (1:Enable, 0:Disable)
 $pagereading_enable = 0;
 
-// Specify converter as ChaSen('chasen') or KAKASI('kakasi') or None('none')
+// Specify converter as ChaSen('chasen') or KAKASI('kakasi') or MeCab('mecab') or Other Command(other) or None('none')
 $pagereading_kanji2kana_converter = 'none';
 
 // Specify Kanji encoding to pass data between PukiWiki and the converter
-$pagereading_kanji2kana_encoding = 'EUC'; // Default for Unix
+$pagereading_kanji2kana_encoding = 'UTF-8'; // Default for Unix
 //$pagereading_kanji2kana_encoding = 'SJIS'; // Default for Windows
 
 // Absolute path of the converter (ChaSen)
@@ -225,6 +226,12 @@ $pagereading_chasen_path = '/usr/local/bin/chasen';
 // Absolute path of the converter (KAKASI)
 $pagereading_kakasi_path = '/usr/local/bin/kakasi';
 //$pagereading_kakasi_path = 'c:\kakasi\bin\kakasi.exe';
+
+// Absolute path of the converter (MeCab)
+$pagereading_mecab_path = '/usr/local/bin/mecab';
+
+// Command of the converter (e.g. Python)
+$pagereading_other_path = '/usr/bin/python3 /tmp/yomi.py';
 
 // Page name contains pronounce data (written by the converter)
 $pagereading_config_page = ':config/PageReading';
@@ -535,6 +542,8 @@ $preformat_ltrim = 1;
 
 /////////////////////////////////////////////////
 // Convert linebreaks into <br />
+// 1: multiple linebreaks into only one <br /> (auto-make paragraph)
+// 2: Convert All linebreaks (It disables auto-making paragraph, use tilde(~))
 $line_break = 0;
 
 /////////////////////////////////////////////////
