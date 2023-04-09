@@ -796,6 +796,7 @@ function get_readings()
 	global $pagereading_kakasi_path, $pagereading_config_page;
 	global $pagereading_config_dict;
 	global $pagereading_mecab_path;
+	global $pagereading_other_path;
 
 	$pages = get_existpages();
 
