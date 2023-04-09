@@ -15,8 +15,8 @@
  */
 
 // paraedit patch style
-define('PLUGIN_SECEDIT_LINK_STYLE', '$1$2<a class="anchor_super" href="$3" title="Edit">' .
-	' <img src="image/paraedit.png" width="9" height="9" alt="Edit" title="Edit" /></a>$4');
+define('PLUGIN_SECEDIT_LINK_STYLE', '$1$2<a href="$3" title="Edit">' .
+		'<span style="float:right;"><span style="line-height: 1.4;" class="fa fa-pen fa-xs"></span>&nbsp;</span></a>$4');
 
 // Monobook style
 // define('PLUGIN_SECEDIT_LINK_STYLE', '$1<span class="editsection">[<a href="$3">edit</a>]</span><span>$2</span>$4');
