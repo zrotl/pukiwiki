@@ -106,7 +106,7 @@ class Plugin_Secedit
 	function redirect($page)
 	{
 		pkwk_headers_sent();
-		header('Location: ' . get_script_uri() . '?' . rawurlencode($page));
+		header('Location: ' . get_base_uri() . '?' . rawurlencode($page));
 		exit;
 	}
 
@@ -115,7 +115,7 @@ class Plugin_Secedit
 		global $rows, $cols, $notimeupdate, $hr, $_msg_help;
 		global $_btn_preview, $_btn_repreview, $_btn_update, $_btn_cancel, $_btn_notchangetimestamp;
 
-		$script      = get_script_uri();
+		$script      = get_base_uri();
 		$r_page      = rawurlencode($this->page);
 		$btn_preview = strpos(get_class($this), 'Preview') ? $_btn_repreview : $_btn_preview;
 
@@ -315,7 +315,7 @@ class Plugin_Secedit_Sections
 {
 	var $sections;
 
-	function Plugin_Secedit_Sections($text)
+	function __construct($text)
 	{
 		$this->sections = $this->_parse($text);
 	}
@@ -470,7 +470,7 @@ function plugin_secedit_wrap(&$string, &$tag, &$param, &$id)
 
 	$open  = '<' . $tag . $param . '>';
 	$close = '</' . $tag . '>';
-	$link  = get_script_uri() . '?cmd=secedit&amp;page=' . rawurlencode($page) . $secid;
+	$link  = get_base_uri() . '?cmd=secedit&amp;page=' . rawurlencode($page) . $secid;
 	$link .= PLUGIN_SECEDIT_LEVEL ? '&amp;level=true' : '';
 
 	return str_replace(
