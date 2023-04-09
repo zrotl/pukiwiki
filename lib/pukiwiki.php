@@ -45,6 +45,8 @@ if ($notify) {
 	require(LIB_DIR . 'mail.php'); // Mail notification
 }
 
+require(PLUGIN_DIR . 'secedit.inc.php');
+
 /////////////////////////////////////////////////
 // Main
 if ($vars['page'] === FALSE) {
