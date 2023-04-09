@@ -71,10 +71,8 @@ class Element
 
 	function wrap($string, $tag, $param = '', $canomit = TRUE)
 	{
-		$secedit = plugin_secedit_wrap($string, $tag, $param, $this->id);
-		return $secedit ? $secedit : parent::wrap($string, $tag, $param, $canomit);
-		// return ($canomit && $string == '') ? '' :
-		// 	'<' . $tag . $param . '>' . $string . '</' . $tag . '>';
+		return ($canomit && $string == '') ? '' :
+			'<' . $tag . $param . '>' . $string . '</' . $tag . '>';
 	}
 
 	function toString()
@@ -271,6 +269,12 @@ class Heading extends Element
 	function canContain(& $obj)
 	{
 		return FALSE;
+	}
+
+	function wrap($string, $tag, $param = '', $canomit = TRUE)
+	{
+		$secedit = plugin_secedit_wrap($string, $tag, $param, $this->id);
+		return $secedit ? $secedit : parent::wrap($string, $tag, $param, $canomit);
 	}
 
 	function toString()
