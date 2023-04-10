@@ -88,7 +88,7 @@ function plugin_topicpath_inline()
 	// This page
 	if (PLUGIN_TOPICPATH_THIS_PAGE_DISPLAY) {
 		$leaf_name = preg_replace('#^.*/#', '', $page);
-		if (PLUGIN_TOPICPATH_THIS_PAGE_LINK) {
+		if (isset($vars['cmd']) || PLUGIN_TOPICPATH_THIS_PAGE_LINK) {
 			$topic_path[] = '<a href="' . get_page_uri($page) . '">' .
 				$leaf_name . '</a>';
 		} else {
