@@ -113,6 +113,7 @@ $_LANG['skin']['filelist']  = 'ファイル名一覧';	// List of filenames
 $_LANG['skin']['freeze']    = '凍結';
 $_LANG['skin']['help']      = 'ヘルプ';
 $_LANG['skin']['list']      = '一覧';	// List of pages
+$_LANG['skin']['log']       = '更新ログ';
 $_LANG['skin']['new']       = '新規';
 $_LANG['skin']['rdf']       = '最終更新のRDF';	// RDF of RecentChanges
 $_LANG['skin']['recent']    = '最終更新';	// RecentChanges

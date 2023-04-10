@@ -61,6 +61,7 @@ function catbody($title, $page, $body)
 	$_LINK['freeze']   = "$script?cmd=freeze&amp;page=$r_page";
 	$_LINK['help']     = get_page_uri($help_page);
 	$_LINK['list']     = "$script?cmd=list";
+	$_LINK['log']      = "$script?cmd=logview&amp;page=$r_page";
 	$_LINK['new']      = "$script?plugin=newpage&amp;refer=$r_page";
 	$_LINK['rdf']      = "$script?cmd=rss&amp;ver=1.0";
 	$_LINK['recent']   = get_page_uri($whatsnew);
