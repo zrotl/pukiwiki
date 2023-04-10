@@ -19,6 +19,7 @@
 			<?php } ?>
 			<?php if ($do_backup) { ?><li><?php _navigator('backup') ?></li><?php } ?>
 			<li><?php _navigator('diff') ?></li>
+			<?php if ($enable_logout) { ?><li><?php _navigator('diff') ?></li><?php } ?>
 		<?php } ?>
 		<?php if ($enable_login || $enable_logout) { ?><li>|</li><?php } ?>
 		<?php if ($enable_login) { ?><li><?php _navigator('login') ?></li><?php } ?>

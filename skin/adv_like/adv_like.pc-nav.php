@@ -37,6 +37,9 @@
 			| <?php _navigator('backup') ?>
 		<?php } ?>
 		| <?php _navigator('diff') ?>
+		<?php if ($enable_logout) { ?>
+		  | <?php _navigator('log') ?>
+		<?php } ?>
 	<?php } ?>
  ]
 
