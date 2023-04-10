@@ -20,7 +20,7 @@ function plugin_logview_init()
 {
 	$messages = array(
 	'_logview_msg' => array(
-		'msg_title'	=> _('LogView (%s)'),
+		'msg_title'	=> _('LogView (%s): '),
 		'msg_not_auth'	=> _('Login is required in order to refer to.'),
 		'ts'		=> _('Date'),
 		'ip'		=> _('IP Address'),
@@ -59,8 +59,8 @@ function plugin_logview_action()
 	static $count = 0;
 
 	$kind = (isset($vars['kind'])) ? $vars['kind'] : 'update';
-	$title = sprintf($_logview_msg['msg_title'],$kind); // タイトルを設定
 	$page = (isset($vars['page'])) ? $vars['page'] : '';
+	$title = sprintf($_logview_msg['msg_title'],$kind).htmlsc($page); // タイトルを設定
 
 	if ($auth_user !== 'admin') {
 		return array(
