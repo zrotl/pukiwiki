@@ -18,7 +18,7 @@ defined('PLUGIN_LOGVIEW_DISPLAY_AUTH_API') or define('PLUGIN_LOGVIEW_DISPLAY_AUT
  */
 function plugin_logview_init()
 {
-	$messages = array(
+	$_logview_messages = array(
 	'_logview_msg' => array(
 		'msg_title'	=> _('LogView (%s): '),
 		'msg_not_auth'	=> _('Login is required in order to refer to.'),
@@ -29,10 +29,10 @@ function plugin_logview_init()
 		'user'		=> _('User Name'),
 		'ntlm'		=> _('NTLM Auth Name'),
 		'proxy'		=> _('Proxy Infomation'),
-		'ua'		=> _('Browse Infomation'),
+		'ua'		=> _('Browser Infomation'),
 		'del'		=> _('Delete'),
 		'sig'		=> _('Signature'),
-		'file'		=> _('Faile Name'),
+		'file'		=> _('File Name'),
 		'page'		=> _('Page'),
 		'cmd'		=> _('CMD'),
 		'local_id'	=> _('local_id'),
@@ -45,7 +45,7 @@ function plugin_logview_init()
 		'availability'  => _('Availability'),
 		)
 	);
-	set_plugin_messages($messages);
+	set_plugin_messages($_logview_messages);
 }
 
 /**

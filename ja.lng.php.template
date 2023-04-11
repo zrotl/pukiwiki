@@ -113,7 +113,7 @@ $_LANG['skin']['filelist']  = 'ファイル名一覧';	// List of filenames
 $_LANG['skin']['freeze']    = '凍結';
 $_LANG['skin']['help']      = 'ヘルプ';
 $_LANG['skin']['list']      = '一覧';	// List of pages
-$_LANG['skin']['log']       = '更新ログ';
+$_LANG['skin']['log']       = 'ログ';
 $_LANG['skin']['new']       = '新規';
 $_LANG['skin']['rdf']       = '最終更新のRDF';	// RDF of RecentChanges
 $_LANG['skin']['recent']    = '最終更新';	// RecentChanges
@@ -129,6 +129,7 @@ $_LANG['skin']['upload']    = '添付';	// Attach a file
 $_LANG['skin']['login']     = 'ログイン';
 $_LANG['skin']['logout']    = 'ログアウト';
 
+
 ///////////////////////////////////////
 // Plug-in message
 ///////////////////////////////////////
@@ -143,7 +144,6 @@ $_btn_article = '記事の投稿';
 $_btn_subject = '題名: ';
 $_msg_article_mail_sender = '投稿者: ';
 $_msg_article_mail_page   = '投稿先: ';
-
 
 ///////////////////////////////////////
 // attach.inc.php
@@ -277,6 +277,36 @@ $_title_invalidiwn = '有効なInterWikiNameではありません';
 ///////////////////////////////////////
 // list.inc.php
 $_title_list = 'ページの一覧';
+
+///////////////////////////////////////
+// logview.inc.php
+$_logview_messages = array(
+	'_logview_msg' => array(
+		'msg_title'	=> _('ログ参照 (%s): '),
+		'msg_not_auth'	=> _('参照するには、ログインが必要です。'),
+		'ts'		=> _('日時'),
+		'ip'		=> _('IPアドレス'),
+		'host'		=> _('ホスト名'),
+		'auth_api'	=> _('認証API名'),
+		'user'		=> _('ユーザ名'),
+		'ntlm'		=> _('NTLM認証名'),
+		'proxy'		=> _('Proxy情報'),
+		'ua'		=> _('ブラウザ情報'),
+		'del'		=> _('削除'),
+		'sig'		=> _('署名'),
+		'file'		=> _('ファイル名'),
+		'page'		=> _('ページ名'),
+		'cmd'		=> _('コマンド'),
+		'local_id'	=> _('local_id(OpenIDのみ)'),
+		'@diff'		=> _('内容'),
+		'@guess'	=> _('暫定ユーザ名'),	// Guess
+		'@guess_diff'	=> _('暫定閲覧ページ'),  // Guess
+		'info_unused'   => _('未利用者一覧'),
+		'all_user'	=> _('登録者数'),
+		'number_unused' => _('未利用者数'),
+		'availability'  => _('利用率'),
+	)
+);
 
 ///////////////////////////////////////
 // ls2.inc.php
