@@ -84,8 +84,7 @@ require_once('config-log.ini.php');
 // Directory settings II (ended with '/')
 
 // Skins / Stylesheets
-// define('SKIN_DIR', 'skin/');
-define('SKIN_DIR', 'skin/adv_like/');
+define('SKIN_DIR', 'skin/');
 // Skin files (SKIN_DIR/*.skin.php) are needed at
 // ./DATAHOME/SKIN_DIR from index.php, but
 // CSSs(*.css) and JavaScripts(*.js) are needed at
@@ -130,7 +129,7 @@ $modifierlink = 'http://pukiwiki.example.com/';
 // Default page name
 $defaultpage  = 'FrontPage';     // Top / Default page
 $whatsnew     = 'RecentChanges'; // Modified page list
-$whatsdeleted = 'RecentDeleted'; // Removeed page list
+$whatsdeleted = 'RecentDeleted'; // Removed page list
 $interwiki    = 'InterWikiName'; // Set InterWiki definition here
 $aliaspage    = 'AutoAliasName'; // Set AutoAlias definition here
 $menubar      = 'MenuBar';       // Menu
@@ -221,7 +220,7 @@ $pagereading_kanji2kana_encoding = 'UTF-8'; // Default for Unix
 
 // Absolute path of the converter (ChaSen)
 $pagereading_chasen_path = '/usr/local/bin/chasen';
-//$pagereading_chasen_path = 'c:\progra~1\chasen21\chasen.exe';
+//$pagereading_chasen_path = 'c:\progra~2\chasen21\chasen.exe';
 
 // Absolute path of the converter (KAKASI)
 $pagereading_kakasi_path = '/usr/local/bin/kakasi';
@@ -229,9 +228,11 @@ $pagereading_kakasi_path = '/usr/local/bin/kakasi';
 
 // Absolute path of the converter (MeCab)
 $pagereading_mecab_path = '/usr/local/bin/mecab';
+//$pagereading_mecab_path = 'c:\progra~2\MeCab\bin\mecab.exe';
 
 // Command of the converter (e.g. Python)
 $pagereading_other_path = '/usr/bin/python3 /tmp/yomi.py';
+//$pagereading_other_path = 'python c:\python\yomi.py';
 
 // Page name contains pronounce data (written by the converter)
 $pagereading_config_page = ':config/PageReading';
