@@ -934,7 +934,7 @@ function get_readings()
 					$line = mb_convert_encoding($line, SOURCE_ENCODING,
 						$pagereading_kanji2kana_encoding);
 					$line = chop($line);
-					$line = mb_convert_kana($line, "aKC");
+					$line = mb_convert_kana($line, "aKCV");
 					$readings[$page] = $line;
 				}
 				pclose($fp);
