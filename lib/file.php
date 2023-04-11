@@ -963,7 +963,7 @@ function get_readings()
 					if($reading != '') continue;
 
 					$output = array();
-					exec($othercmd.$page, $output);
+					exec($othercmd.'"'.$page.'"', $output);
 					$line = $output[0];
 					$line = mb_convert_encoding($line, SOURCE_ENCODING,
 						$pagereading_kanji2kana_encoding);
