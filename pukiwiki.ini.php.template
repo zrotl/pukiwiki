@@ -84,7 +84,7 @@ require_once('config-log.ini.php');
 // Directory settings II (ended with '/')
 
 // Skins / Stylesheets
-define('SKIN_DIR', 'skin/');
+define('SKIN_DIR', 'skin/default/');
 // Skin files (SKIN_DIR/*.skin.php) are needed at
 // ./DATAHOME/SKIN_DIR from index.php, but
 // CSSs(*.css) and JavaScripts(*.js) are needed at
