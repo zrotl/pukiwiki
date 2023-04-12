@@ -175,7 +175,7 @@ div.ie5 {
 }
 
 .noexists {
-	text-shadow: none;
+	text-shadow: none !important;
 }
 
 .super_index {
