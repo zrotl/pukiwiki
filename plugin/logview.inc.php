@@ -19,30 +19,30 @@ defined('PLUGIN_LOGVIEW_DISPLAY_AUTH_API') or define('PLUGIN_LOGVIEW_DISPLAY_AUT
 function plugin_logview_init()
 {
 	$_logview_messages = array(
-	'_logview_msg' => array(
-		'msg_title'	=> _('LogView (%s): '),
-		'msg_not_auth'	=> _('Login is required in order to refer to.'),
-		'ts'		=> _('Date'),
-		'ip'		=> _('IP Address'),
-		'host'		=> _('Host Name'),
-		'auth_api'	=> _('Authentication API Name'),
-		'user'		=> _('User Name'),
-		'ntlm'		=> _('NTLM Auth Name'),
-		'proxy'		=> _('Proxy Infomation'),
-		'ua'		=> _('Browser Infomation'),
-		'del'		=> _('Delete'),
-		'sig'		=> _('Signature'),
-		'file'		=> _('File Name'),
-		'page'		=> _('Page'),
-		'cmd'		=> _('CMD'),
-		'local_id'	=> _('local_id'),
-		'@diff'		=> _('Contents'),
-		'@guess'	=> _('Provisional User Name'),	// Guess
-		'@guess_diff'	=> _('Provisional Browse Contents'),  // Guess
-		'info_unused'   => _('Unused user list'),
-		'all_user'	=> _('Number of enrollees'),
-		'number_unused' => _('Number of Unused'),
-		'availability'  => _('Availability'),
+		'_logview_msg' => array(
+			'msg_title'	=> 'LogView (%s): ',
+			'msg_not_auth'	=> 'Login is required in order to refer to.',
+			'ts'		=> 'Date',
+			'ip'		=> 'IP Address',
+			'host'		=> 'Host Name',
+			'auth_api'	=> 'Authentication API Name',
+			'user'		=> 'User Name',
+			'ntlm'		=> 'NTLM Auth Name',
+			'proxy'		=> 'Proxy Infomation',
+			'ua'		=> 'Browser Infomation',
+			'del'		=> 'Delete',
+			'sig'		=> 'Signature',
+			'file'		=> 'File Name',
+			'page'		=> 'Page',
+			'cmd'		=> 'CMD',
+			'local_id'	=> 'local_id',
+			'@diff'		=> 'Contents',
+			'@guess'	=> 'Provisional User Name',	// Guess
+			'@guess_diff'	=> 'Provisional Browse Contents',  // Guess
+			'info_unused'   => 'Unused user list',
+			'all_user'	=> 'Number of enrollees',
+			'number_unused' => 'Number of Unused',
+			'availability'  => 'Availability',
 		)
 	);
 	set_plugin_messages($_logview_messages);

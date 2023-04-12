@@ -251,6 +251,34 @@ $_msg_diff_deleted   = '$1 の差分を削除しました。';
 $_msg_diff_adminpass = '削除用のパスワードを入力してください。';
 
 ///////////////////////////////////////
+// epoch.inc.php
+$_epoch_labels = array(
+	'week' => array(
+		array('日', '日曜日'),
+		array('月', '月曜日'),
+		array('火', '火曜日'),
+		array('水', '水曜日'),
+		array('木', '木曜日'),
+		array('金', '金曜日'),
+		array('土', '土曜日')
+	),
+	'month'=> array(
+		1	=>array('1', '1月（睦月）'),
+		2	=>array('2', '2月（如月）'),
+		3	=>array('3', '3月（弥生）'),
+		4	=>array('4', '4月（卯月）'),
+		5	=>array('5', '5月（皐月）'),
+		6	=>array('6', '6月（水無月）'),
+		7	=>array('7', '7月（文月）'),
+		8	=>array('8', '8月（葉月）'),
+		9	=>array('9', '9月（長月）'),
+		10	=>array('10', '10月（神無月）'),
+		11	=>array('11', '11月（霜月）'),
+		12	=>array('12', '12月（師走）')
+	)
+);
+
+///////////////////////////////////////
 // filelist.inc.php (list.inc.php)
 $_title_filelist = 'ページファイルの一覧';
 
@@ -282,29 +310,29 @@ $_title_list = 'ページの一覧';
 // logview.inc.php
 $_logview_messages = array(
 	'_logview_msg' => array(
-		'msg_title'	=> _('ログ参照 (%s): '),
-		'msg_not_auth'	=> _('参照するには、ログインが必要です。'),
-		'ts'		=> _('日時'),
-		'ip'		=> _('IPアドレス'),
-		'host'		=> _('ホスト名'),
-		'auth_api'	=> _('認証API名'),
-		'user'		=> _('ユーザ名'),
-		'ntlm'		=> _('NTLM認証名'),
-		'proxy'		=> _('Proxy情報'),
-		'ua'		=> _('ブラウザ情報'),
-		'del'		=> _('削除'),
-		'sig'		=> _('署名'),
-		'file'		=> _('ファイル名'),
-		'page'		=> _('ページ名'),
-		'cmd'		=> _('コマンド'),
-		'local_id'	=> _('local_id(OpenIDのみ)'),
-		'@diff'		=> _('内容'),
-		'@guess'	=> _('暫定ユーザ名'),	// Guess
-		'@guess_diff'	=> _('暫定閲覧ページ'),  // Guess
-		'info_unused'   => _('未利用者一覧'),
-		'all_user'	=> _('登録者数'),
-		'number_unused' => _('未利用者数'),
-		'availability'  => _('利用率'),
+		'msg_title'	=> 'ログ参照 (%s): ',
+		'msg_not_auth'	=> '参照するには、ログインが必要です。',
+		'ts'		=> '日時',
+		'ip'		=> 'IPアドレス',
+		'host'		=> 'ホスト名',
+		'auth_api'	=> '認証API名',
+		'user'		=> 'ユーザ名',
+		'ntlm'		=> 'NTLM認証名',
+		'proxy'		=> 'Proxy情報',
+		'ua'		=> 'ブラウザ情報',
+		'del'		=> '削除',
+		'sig'		=> '署名',
+		'file'		=> 'ファイル名',
+		'page'		=> 'ページ名',
+		'cmd'		=> 'コマンド',
+		'local_id'	=> 'local_id(OpenIDのみ)',
+		'@diff'		=> '内容',
+		'@guess'	=> '暫定ユーザ名',	// Guess
+		'@guess_diff'	=> '暫定閲覧ページ',  // Guess
+		'info_unused'   => '未利用者一覧',
+		'all_user'	=> '登録者数',
+		'number_unused' => '未利用者数',
+		'availability'  => '利用率',
 	)
 );
 
