@@ -14,41 +14,39 @@
 
 // 1day = 86400;
 
-// use PukiWiki\Utility;
-// use PukiWiki\Time;
-
 function plugin_epoch_init() {
-    $_epoch_labels = array(
-        'week' => array(
-            array('Sun', 'Sunday'),
-            array('Mon', 'Monday'),
-            array('Tue', 'Tuesday'),
-            array('Wed', 'Wednesday'),
-            array('Thu', 'Thursday'),
-            array('Fri', 'Friday'),
-            array('Sat', 'Saturday')
-        ),
-        'month'=> array(
-            1	=>array('_Jan', 'January'),
-            2	=>array('_Feb', 'February'),
-            3	=>array('_Mar', 'March'),
-            4	=>array('_Apr', 'April'),
-            5	=>array('_May', 'May'),
-            6	=>array('_Jun', 'June'),
-            7	=>array('_Jul', 'July'),
-            8	=>array('_Aug', 'August'),
-            9	=>array('_Sep', 'September'),
-            10	=>array('_Oct', 'October'),
-            11	=>array('_Nov', 'November'),
-            12	=>array('_Dec', 'December')
+    $labels = array (
+        '_epoch_labels'=> array(
+            'week' => array(
+                array('Sun', 'Sunday'),
+                array('Mon', 'Monday'),
+                array('Tue', 'Tuesday'),
+                array('Wed', 'Wednesday'),
+                array('Thu', 'Thursday'),
+                array('Fri', 'Friday'),
+                array('Sat', 'Saturday')
+            ),
+            'month'=> array(
+                1	=>array('_Jan', 'January'),
+                2	=>array('_Feb', 'February'),
+                3	=>array('_Mar', 'March'),
+                4	=>array('_Apr', 'April'),
+                5	=>array('_May', 'May'),
+                6	=>array('_Jun', 'June'),
+                7	=>array('_Jul', 'July'),
+                8	=>array('_Aug', 'August'),
+                9	=>array('_Sep', 'September'),
+                10	=>array('_Oct', 'October'),
+                11	=>array('_Nov', 'November'),
+                12	=>array('_Dec', 'December')
+            )
         )
     );
-    set_plugin_messages($_epoch_labels);
+    set_plugin_messages($labels);
 }
 
 function plugin_epoch_inline()
 {
-    plugin_epoch_init();
 	$value = func_get_args();
 	$args = func_num_args();
 
@@ -84,7 +82,7 @@ function plugin_epoch_inline()
 
 function format($time, $quote = FALSE, $format = null)
 {
-    global $date_format, $time_format;
+    global $date_format, $time_format, $_epoch_labels;
 
     //$time += ZONETIME;
     $wday = date('w', $time);
