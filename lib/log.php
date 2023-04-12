@@ -339,6 +339,7 @@ function log_set_signature($kind,$page,$utime)
  */
 function log_put($filename,$data)
 {
+	touch($filename);
 	// 排他制御が利かない FS に対応し @ で逃げる
 	$fp = fopen($filename, 'a');
 	@flock( $fp, LOCK_EX);
