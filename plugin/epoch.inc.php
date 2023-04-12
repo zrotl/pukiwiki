@@ -48,6 +48,7 @@ function plugin_epoch_init() {
 
 function plugin_epoch_inline()
 {
+    plugin_epoch_init();
 	$value = func_get_args();
 	$args = func_num_args();
 
@@ -88,7 +89,7 @@ function format($time, $quote = FALSE, $format = null)
     //$time += ZONETIME;
     $wday = date('w', $time);
 
-    $week   = $_labels['week'][$wday];
+    $week   = $_epoch_labels['week'][$wday];
 
     if ($wday == 0) {
         // Sunday
@@ -104,7 +105,7 @@ function format($time, $quote = FALSE, $format = null)
             '(<abbr class="' . $style . '" title="' . $week[1]. '">'. $week[0] . '</abbr>)' .
             date($time_format, $time);
     }else{
-        $month  = $_labels['month'][date('n', $time)];
+        $month  = $_epoch_labels['month'][date('n', $time)];
         $month_short = $month[0];
         $month_long = $month[1];
 
