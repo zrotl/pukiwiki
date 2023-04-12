@@ -170,11 +170,15 @@ div.ie5 {
 	text-align:center;
 }
 
+.comment_date {
+    font-size: x-small;
+}
+
 .small {
 	font-size:80%;
 }
 
-.noexists {
+span.noexists {
 	text-shadow: none !important;
 }
 

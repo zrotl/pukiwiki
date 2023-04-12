@@ -132,6 +132,18 @@ span.noexists {
 	background-color:#ffe000;
 }
 
+.week_sat {
+    color: blue;
+}
+
+.week_day {
+    color: white;
+}
+
+.week_sun,.week_holiday {
+    color: red;
+}
+
 .super_index{
 	color:#DD3333;
 	background-color:inherit;
