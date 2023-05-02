@@ -155,10 +155,10 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
   <div id="topicpath"><?php require_once(PLUGIN_DIR . 'topicpath.inc.php'); echo plugin_topicpath_inline(); ?></div><?php echo $body ?>
  </div>
 <?php if ($menu) { ?>
- <div id="menubar"><?php echo $menu ?></div>
+ <div id="menubar-outer"><div id="menubar"><?php echo $menu ?></div></div>
 <?php } ?>
 <?php if ($rightbar) { ?>
- <div id="rightbar"><?php echo $rightbar ?></div>
+ <div id="rightbar-outer"><div id="rightbar"><?php echo $rightbar ?></div></div>
 <?php } ?>
 </div>
 

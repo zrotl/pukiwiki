@@ -4,6 +4,7 @@ const $spheader = $('#sp-header');
 const $spnavi = $("#sp-navigator");
 const $contents = $("#contents");
 const $menubar = $("#menubar");
+const $menubar_outer = $("#menubar-outer");
 const $colorcheckbox = $("#color_mode_switch");
 const $stylesheet = $('#colorstyle');
 
@@ -54,7 +55,7 @@ function calcContentsHeight() {
     $spnavi.css('top', (header_height-navi_height-1)+"px");
     $contents.css('top', header_height+"px");
     if (window.matchMedia("(max-width: 768px)").matches) {
-        $menubar.css('top', header_height+"px");
+        $menubar_outer.css('top', header_height+"px");
         $menubar.css('height', window.innerHeight-header_height-($menubar.innerHeight()-$menubar.height())+"px");
     } else {
         $menubar.css('height', 'auto');

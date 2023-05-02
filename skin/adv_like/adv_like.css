@@ -320,7 +320,7 @@ div#contents {
 	word-wrap:break-word;
 }
 
-div#menubar {
+div#menubar-outer {
 	order: 1;
 	width: 20%;
 	/* padding-right: 4px; */
@@ -330,7 +330,7 @@ div#menubar {
 	list-style: none;
 }
 
-div#rightbar {
+div#rightbar-outer {
 	order: 3;
 	width: 20%;
  	/* padding-left: 4px; */
@@ -842,40 +842,45 @@ div#sp-navigator {
 		margin-right: 8px;
 	}
 
-	div#menubar {
-		overscroll-behavior: none;
-		padding:8px;
-		min-height: max-content;
+	div#menubar-outer {
 		position: fixed;
 		left: 0;
 		top: 0;
 		bottom: 0;
 		width: auto;
-		font-size: 100%;
-		overflow-y: auto;
-		/* -webkit-overflow-scrolling: touch; */
 		transform: translateX(calc(-1em - 100%));
 		transition: transform 250ms ease-in-out;
 	}
-	input[type="checkbox"]#openMenubar:checked ~ div#contents div#menubar {
+	div#menubar {
+		width: auto;
+		padding: 8px;
+		font-size: 100%;
+		overflow-y: auto;
+		overscroll-behavior: none;
+		-webkit-overflow-scrolling: touch;
+	}
+	input[type="checkbox"]#openMenubar:checked ~ div#contents div#menubar-outer {
 		transform: translateX(0);
 	}
 
-	div#rightbar {
-		z-index: 10000;
-		display: block;
-		min-height: max-content;
-		padding: 10px;
-		position: absolute;
+	div#rightbar-outer {
+		position: fixed;
 		right: 0;
 		top: 0;
 		bottom: 0;
 		width: auto;
-		font-size: 100%;
 		transform: translateX(calc(+1em + 100%));
 		transition: transform 250ms ease-in-out;
 	}
-	input[type="checkbox"]#openNavibar:checked ~ div#contents div#rightbar {
+	div#rightbar {
+		width: auto;
+		padding: 8px;
+		font-size: 100%;
+		overflow-y: auto;
+		overscroll-behavior: none;
+		-webkit-overflow-scrolling: touch;
+	}
+	input[type="checkbox"]#openNavibar:checked ~ div#contents div#rightbar-outer {
 		transform: translateX(0);
 	}
 
