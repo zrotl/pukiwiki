@@ -29,4 +29,5 @@
 /node_modules/
 /package-lock.json
 
+/*.lng.php
 /*.ini.php
