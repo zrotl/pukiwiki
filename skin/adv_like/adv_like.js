@@ -6,11 +6,11 @@ const $contents = $("#contents");
 const $menubar = $("#menubar");
 const $menubar_outer = $("#menubar-outer");
 const $colorcheckbox = $("#color_mode_switch");
-const $stylesheet = $('#colorstyle');
 
 // initialize Positions
 calcLogoSize();
 calcContentsHeight();
+$colorcheckbox.prop("checked", darkmode);
 
 // display mode change(sp -> pc)
 window.matchMedia('(max-width: 767px)').onchange = (e) => {
@@ -30,6 +30,14 @@ $colorcheckbox.change(function () {
 
 
 // define functions
+function changeStyleSheet(mode) {
+    if(mode) {
+        $stylesheet.attr('href', dir+'adv_like.color.dark.css');
+    } else {
+        $stylesheet.attr('href', dir+'adv_like.color.light.css');
+    }
+}
+
 function calcContentsHeight() {
     var navi_height = $spnavi.outerHeight(true);
     var header_height =$spheader.outerHeight(true);
