@@ -83,10 +83,13 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
  <link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.css" />
  <link id="colorstyle" rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
  <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery ?>
+ <script type="text/javascript">
+	const dir = "<?php echo SKIN_DIR ?>";
+</script>
  <script type="text/javascript" src="skin/main.js" defer></script>
  <script type="text/javascript" src="skin/search2.js" defer></script>
  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
- <script type="text/javascript" src="skin/adv_like.css.js"></script>
+ <script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.css.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php echo $head_tag ?>
 </head>
@@ -272,8 +275,5 @@ function _toolbar($key, $x = 20, $y = 20){
 </div>
 <?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin ?>
 </body>
-<script type="text/javascript">
-	const dir = "<?php echo SKIN_DIR ?>";
-</script>
 <script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.js"></script>
 </html>
