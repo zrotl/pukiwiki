@@ -86,6 +86,7 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
  <script type="text/javascript" src="skin/main.js" defer></script>
  <script type="text/javascript" src="skin/search2.js" defer></script>
  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+ <script type="text/javascript" src="skin/adv_like.css.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php echo $head_tag ?>
 </head>

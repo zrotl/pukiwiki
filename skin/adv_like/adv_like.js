@@ -8,16 +8,9 @@ const $menubar_outer = $("#menubar-outer");
 const $colorcheckbox = $("#color_mode_switch");
 const $stylesheet = $('#colorstyle');
 
-// Cookies
-const getCookie = Cookies.get('pkwk-darkmode');
-
 // initialize Positions
 calcLogoSize();
 calcContentsHeight();
-changeStyleSheet((typeof getCookie === 'undefined') ? 
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-    : JSON.parse(Cookies.get('pkwk-darkmode'))
-);
 
 // display mode change(sp -> pc)
 window.matchMedia('(max-width: 767px)').onchange = (e) => {
@@ -37,16 +30,6 @@ $colorcheckbox.change(function () {
 
 
 // define functions
-function changeStyleSheet(mode) {
-    if(mode) {
-        $stylesheet.attr('href', dir+'adv_like.color.dark.css');
-        $colorcheckbox.prop("checked", true);
-    } else {
-        $stylesheet.attr('href', dir+'adv_like.color.light.css');
-        $colorcheckbox.prop("checked", false);
-    }
-}
-
 function calcContentsHeight() {
     var navi_height = $spnavi.outerHeight(true);
     var header_height =$spheader.outerHeight(true);
