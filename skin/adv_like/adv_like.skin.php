@@ -45,14 +45,8 @@ $link  = & $_LINK;
 $image = & $_IMAGE['skin'];
 $rw    = ! PKWK_READONLY;
 
-
-$current_url = '';
-if (isset($_SERVER['HTTPS'])) {
-    $current_url .= 'https://';
-} else {
-    $current_url .= 'http://';
-}
-$current_url .= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$current_url = strstr($link['top'], '://', TRUE).'://'.substr($_SERVER['REQUEST_URI'],1);
+//$current_url .= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 //$current_url = $link['top'].substr($_SERVER['REQUEST_URI'],1);
 
 // MenuBar
