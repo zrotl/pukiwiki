@@ -16,7 +16,7 @@ if (defined('PKWK_DISABLE_INLINE_IMAGE_FROM_URI') && PKWK_DISABLE_INLINE_IMAGE_F
 
 function plugin_img_get_style($args)
 {
-	$style = '';
+	$style = 'max-width:100%;height:auto;';
 	for ($i = 1; $i <= 3; $i++) {
 		if (isset($args[$i])) {
 			$arg = $args[$i];

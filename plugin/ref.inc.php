@@ -367,6 +367,8 @@ function plugin_ref_body($args)
 			} else if ($params['_h']) {
 				$info = trim($info) . " style=\"width:auto;height:" . $params['_h'] . "px;\"";
 			}
+		} else if (!$params['_size']) {
+			$info = trim($info) . " style=\"max-width:100%;height:auto;\"";
 		}
 	}
 	if ($is_image) { // 画像
