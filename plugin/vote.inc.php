@@ -6,6 +6,8 @@
 //
 // Vote box plugin
 
+define('PLUGIN_VOTE_NOTIMEUPDATE', TRUE);
+
 function plugin_vote_action()
 {
 	global $vars, $cols,$rows;
@@ -66,7 +68,7 @@ $_msg_collided
 
 EOD;
 	} else {
-		page_write($vars['refer'], $postdata);
+		page_write($vars['refer'], $postdata, PLUGIN_VOTE_NOTIMEUPDATE);
 		$title = $_title_updated;
 	}
 
