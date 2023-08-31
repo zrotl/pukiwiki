@@ -772,7 +772,7 @@ div#sp-navigator {
 		display: none;
 	}
 
-	hr.full_hr:first-of-type {
+	body > hr.full_hr:first-of-type {
 		display: none;
 	}
 
