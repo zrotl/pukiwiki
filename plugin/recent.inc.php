@@ -58,6 +58,7 @@ function plugin_recent_convert()
 	$date = $items = '';
 	foreach ($lines as $line) {
 		list($time, $page) = explode("\t", rtrim($line));
+		if (check_non_list($page)) continue;
 
 		$_date = get_date($date_format, $time);
 		if ($date != $_date) {
